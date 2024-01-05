@@ -1,4 +1,4 @@
-# PocketBase Testing
+# Endless Struggle
 
 An app to test a PocketBase backend.
 
