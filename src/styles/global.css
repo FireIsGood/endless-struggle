@@ -1,0 +1,122 @@
+/* Basic styles */
+body {
+    min-height: 100dvh;
+    color: #454545;
+    font-size: 18px;
+}
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+/* Remove default margins (optional) */
+* {
+    margin: 0;
+}
+/* Fix line height and font rendering */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+/* Fix media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+}
+/* Fix input styles */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+/* Fix text overflow */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+/* Fix link colors */
+:where(a) {
+    color: #03f;
+    text-underline-offset: 0.2em;
+}
+:where(a) :visited {
+    color: #7d013e;
+}
+
+/* Variables */
+:root body {
+    /* Colors */
+    --bg0: #f9f5f2;
+    --bg1: #e3e3e3;
+    --fg0: #170e0a;
+
+    --primary0: #eeb18c;
+    --secondary0: #bbd59c;
+    --accent0: #83c371;
+
+    --border-color: #333;
+    --border-radius-sm: 6px;
+
+    /* Sizes */
+    --message-box-height: min(55vh, 500px);
+
+    /* Shadows */
+    --shadow-color: 0 0% 55%;
+    --shadow-elevation-low: 0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.51),
+        0.4px 0.9px 0.9px -1.8px hsl(var(--shadow-color) / 0.4),
+        1.2px 2.3px 2.5px -3.6px hsl(var(--shadow-color) / 0.3);
+    --shadow-elevation-medium: 0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.54),
+        0.7px 1.4px 1.5px -1.2px hsl(var(--shadow-color) / 0.45),
+        2.2px 4.2px 4.5px -2.4px hsl(var(--shadow-color) / 0.37),
+        5.9px 11.3px 12.1px -3.6px hsl(var(--shadow-color) / 0.28);
+    --shadow-elevation-high: 0.3px 0.6px 0.6px hsl(var(--shadow-color) / 0.5),
+        1.1px 2.1px 2.3px -0.5px hsl(var(--shadow-color) / 0.46),
+        2.2px 4.2px 4.5px -1px hsl(var(--shadow-color) / 0.42),
+        4.1px 7.8px 8.4px -1.6px hsl(var(--shadow-color) / 0.38),
+        7.2px 13.9px 14.9px -2.1px hsl(var(--shadow-color) / 0.34),
+        12.2px 23.5px 25.2px -2.6px hsl(var(--shadow-color) / 0.3),
+        19.5px 37.6px 40.3px -3.1px hsl(var(--shadow-color) / 0.26),
+        29.6px 57.2px 61.3px -3.6px hsl(var(--shadow-color) / 0.22);
+}
+
+/* Main styles */
+body {
+    background-color: var(--bg0);
+    color: var(--fg0);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Helper styles */
+.shadow-sm {
+    box-shadow: var(--shadow-elevation-low);
+}
+.shadow-md {
+    box-shadow: var(--shadow-elevation-medium);
+}
+.shadow-hi {
+    box-shadow: var(--shadow-elevation-high);
+}
+
+/* Generic styles */
+input[type="submit"],
+button {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+}
