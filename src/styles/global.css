@@ -185,7 +185,7 @@ body {
 .shadow-md {
     box-shadow: var(--shadow-elevation-medium);
 }
-.shadow-hi {
+.shadow-lg {
     box-shadow: var(--shadow-elevation-high);
 }
 
