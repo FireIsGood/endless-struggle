@@ -1,4 +1,5 @@
 <script lang="ts">
+    import UserImage from "./UserImage.svelte";
     import { onDestroy, onMount } from "svelte";
     import { fade } from "svelte/transition";
     import { pb } from "../scripts/pocketbase";
@@ -55,10 +56,7 @@
         {#each $posts as message (message.id)}
             <li class="message" in:fade={{ duration: 240 }}>
                 <div class="message-image">
-                    <img
-                        src={`https://api.dicebear.com/7.x/icons/svg?backgroundColor=b6e3f4,c0aede,d1d4f9&backgroundType=gradientLinear&seed=${message.expand?.author?.name}`}
-                        alt=""
-                    />
+                    <UserImage seed={message.expand?.author?.name ?? ""} />
                 </div>
                 <div class="message-body">
                     <div class="author">@{message.expand?.author?.name}</div>
