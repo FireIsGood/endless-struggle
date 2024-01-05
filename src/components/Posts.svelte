@@ -6,6 +6,7 @@
     import { pb } from "../scripts/pocketbase";
     import type { RecordSubscription } from "pocketbase";
     import { posts, type Post } from "../scripts/stores";
+    import { timeout } from "../scripts/utils";
 
     let loading = true;
     let unsubscribe: () => void = () => {};
@@ -24,7 +25,7 @@
             .subscribe("*", handleDbUpdate);
 
         // Scroll to see message
-        scrollToBottom();
+        await scrollToBottom();
         loading = false;
     });
 
@@ -47,10 +48,9 @@
         }
     }
 
-    function scrollToBottom() {
-        setTimeout(() => {
-            scrollBottom.scrollIntoView({ behavior: "auto" });
-        }, 10);
+    async function scrollToBottom() {
+        await timeout(10);
+        scrollBottom.scrollIntoView({ behavior: "auto" });
     }
 </script>
 
@@ -60,7 +60,7 @@
     </Loading>
     <ul>
         {#each $posts as message (message.id)}
-            <li class="message" in:fly={{ x: 30, duration: 400 }}>
+            <li class="message" in:fly={{ x: 30, duration: loading ? 0 : 400 }}>
                 <div class="message-image shadow-md">
                     <UserImage seed={message.expand?.author?.name ?? ""} />
                 </div>
@@ -75,6 +75,10 @@
 </div>
 
 <style>
+    .loading ul {
+        opacity: 0;
+    }
+
     ul {
         padding: 0;
         display: flex;
