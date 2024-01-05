@@ -6,11 +6,10 @@
     }
 </script>
 
-<button on:click={logout}>Log out</button>
+<button on:click={logout} class="button-muted">Log out</button>
 
 <style>
     button {
         padding: 2px 10px;
-        background-color: var(--bg1);
     }
 </style>

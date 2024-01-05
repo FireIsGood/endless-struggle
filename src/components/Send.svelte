@@ -20,8 +20,8 @@
 </script>
 
 <form on:submit|preventDefault={sendMessage}>
-    <input bind:value={post} type="text" placeholder="post..." required />
-    <input type="submit" />
+    <input bind:value={post} type="text" placeholder="Post..." required />
+    <input type="submit" value="Send" />
 </form>
 
 <style>

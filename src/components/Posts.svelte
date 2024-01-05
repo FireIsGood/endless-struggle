@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Loading from "./Loading.svelte";
     import UserImage from "./UserImage.svelte";
     import { onDestroy, onMount } from "svelte";
     import { fade } from "svelte/transition";
@@ -6,6 +7,7 @@
     import type { RecordSubscription } from "pocketbase";
     import { posts, type Post } from "../scripts/stores";
 
+    let loading = true;
     let unsubscribe: () => void = () => {};
     let scrollBottom: HTMLElement;
 
@@ -23,6 +25,7 @@
 
         // Scroll to see message
         scrollToBottom();
+        loading = false;
     });
 
     // Unsubscribe on exit
@@ -51,7 +54,10 @@
     }
 </script>
 
-<div class="message-list shadow-md">
+<div class="message-list shadow-md" class:loading>
+    <Loading {loading}>
+        <slot name="spinner" slot="spinner" />
+    </Loading>
     <ul>
         {#each $posts as message (message.id)}
             <li class="message" in:fade={{ duration: 240 }}>
@@ -89,6 +95,10 @@
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         border: 1px solid rgba(142, 142, 142, 0.3);
+    }
+
+    .message-list.loading {
+        overflow: hidden;
     }
 
     .message {

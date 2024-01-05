@@ -40,37 +40,52 @@
     }
 </script>
 
-<form on:submit|preventDefault>
-    <div class="form-item">
-        <label for="username">Username</label>
-        <input
-            bind:value={username}
-            id="username"
-            type="text"
-            placeholder="username"
-            required
-        />
+<div class="log-in-wrapper">
+    <div class="log-in-container">
+        <h2 class="pad">Log in to continue</h2>
+        <form on:submit|preventDefault>
+            <div class="form-item">
+                <label for="username">Username</label>
+                <input
+                    bind:value={username}
+                    id="username"
+                    type="text"
+                    placeholder="username"
+                    required
+                />
+            </div>
+            <div class="form-item">
+                <label for="password">Password</label>
+                <input
+                    bind:value={password}
+                    id="password"
+                    type="password"
+                    placeholder="password"
+                    required
+                />
+            </div>
+            <input on:click={login} type="submit" value="Log in" />
+            <input
+                on:click={signUp}
+                type="submit"
+                value="Sign up"
+                class="button-secondary"
+            />
+        </form>
     </div>
-    <div class="form-item">
-        <label for="password">Password</label>
-        <input
-            bind:value={password}
-            id="password"
-            type="password"
-            placeholder="password"
-            required
-        />
-    </div>
-    <input on:click={login} type="submit" value="Log in" class="login" />
-    <input on:click={signUp} type="submit" value="Sign up" class="signup" />
-</form>
+</div>
 
 <style>
-    .form-item {
-        line-height: 1.2;
+    .log-in-wrapper {
+        display: grid;
+        justify-items: center;
     }
 
-    .signup {
-        background-color: var(--secondary0);
+    .log-in-container {
+        width: min(100%, 500px);
+    }
+
+    .form-item {
+        line-height: 1.2;
     }
 </style>

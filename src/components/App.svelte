@@ -1,10 +1,18 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import { currentUser } from "../scripts/pocketbase";
     import Login from "./Login.svelte";
     import Logout from "./Logout.svelte";
     import Posts from "./Posts.svelte";
     import Send from "./Send.svelte";
     import UserImage from "./UserImage.svelte";
+    import Loading from "./Loading.svelte";
+
+    let loading = true;
+
+    onMount(() => {
+        loading = false;
+    });
 </script>
 
 <header>
@@ -25,21 +33,22 @@
 </header>
 
 <main>
+    <Loading {loading}>
+        <slot name="spinner" slot="spinner" />
+    </Loading>
     {#if $currentUser}
         <div class="message-container">
-            <Posts />
+            <Posts>
+                <slot name="spinner" slot="spinner" />
+            </Posts>
         </div>
         <p>Send a post</p>
         <Send />
     {:else}
-        <div class="sign-in-wrapper">
-            <div class="sign-in-container">
-                <h2 class="pad">Sign in to continue</h2>
-                <Login />
-            </div>
-        </div>
+        <Login />
     {/if}
 </main>
+
 <footer>
     <div class="footer-content">
         <p>Created by FireIsGood</p>
@@ -47,12 +56,15 @@
 </footer>
 
 <style>
-    header {
+    header,
+    footer {
         background-color: var(--secondary0);
+        z-index: 2;
+    }
+    header {
         min-height: 75px;
     }
     footer {
-        background-color: var(--secondary0);
         min-height: 45px;
     }
 
@@ -86,14 +98,6 @@
         width: min(960px, 100%);
         padding: 1rem;
         align-self: center;
-    }
-
-    .sign-in-wrapper {
-        display: grid;
-        justify-items: center;
-    }
-    .sign-in-container {
-        width: min(100%, 500px);
     }
 
     .username {

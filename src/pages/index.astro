@@ -1,11 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import App from "../components/App.svelte";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout
     title="Endless Struggle"
     description="The Endless Struggle to think of a cool name"
 >
-    <App client:load />
+    <App client:load>
+        <Icon name="sakura" size={500} slot="spinner" />
+    </App>
 </Layout>
