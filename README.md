@@ -1,6 +1,6 @@
 # Endless Struggle
 
-An app to test a PocketBase backend.
+An app to test a PocketBase backend. It is hosted on GitHub because funny free hosting.
 
 ## Installation
 
@@ -53,7 +53,7 @@ There are additional commands you can run from the terminal:
 | :--------------------- | :----------------------------------------------- |
 | `pnpm install`         | Installs dependencies                            |
 | `pnpm dev`             | Starts local dev server at `localhost:1625`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm build`           | Build your production site to `./docs/`          |
 | `pnpm preview`         | Preview your build locally, before deploying     |
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |

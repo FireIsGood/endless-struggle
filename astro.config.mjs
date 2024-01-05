@@ -8,4 +8,9 @@ export default defineConfig({
         port: 1625,
     },
     integrations: [svelte()],
+
+    // Hosting on GitHub
+    outDir: "./docs",
+    site: "https://fireisgood.github.io/",
+    base: "/endless-struggle",
 });
