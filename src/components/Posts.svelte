@@ -101,14 +101,4 @@
         width: 72px;
         height: 72px;
     }
-
-    .message-body {
-    }
-
-    .red .author {
-        color: maroon;
-    }
-    .blue .author {
-        color: blue;
-    }
 </style>
