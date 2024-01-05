@@ -10,7 +10,7 @@ export interface Post extends RecordModel {
 }
 export interface User extends RecordModel {
     name: string;
-    avatar: any;
+    avatar: string;
     role: string;
 }
 
