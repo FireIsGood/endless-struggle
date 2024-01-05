@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { fly } from "svelte/transition";
     import { currentUser } from "../scripts/pocketbase";
     import Login from "./Login.svelte";
     import Logout from "./Logout.svelte";
@@ -18,12 +19,13 @@
 <header>
     <div class="header-content">
         <h1>Endless Struggle</h1>
-        {#if $currentUser}
-            <div class="user-card">
+        {#if $currentUser && !loading}
+            <div
+                class="user-card shadow-sm"
+                transition:fly={{ y: -10, duration: 400 }}
+            >
                 <Logout />
-                <p>
-                    Hello, <span class="username">{$currentUser.username}</span>
-                </p>
+                <div class="username">{$currentUser.username}</div>
                 <div class="user-image shadow-sm">
                     <UserImage seed={$currentUser.username} />
                 </div>
@@ -70,20 +72,24 @@
 
     .footer-content,
     .header-content {
-        max-width: 960px;
         margin-inline: auto;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
         align-items: center;
         gap: 10px;
-        padding: 10px;
+        max-width: 960px;
+        min-height: 75px;
+        padding: 5px;
     }
 
     .user-card {
         display: flex;
         align-items: center;
         gap: 10px;
+        background-color: var(--secondary2);
+        padding: 5px;
+        border-radius: var(--border-radius-md);
     }
 
     @media (width > 960px) {

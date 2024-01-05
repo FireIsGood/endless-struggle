@@ -2,7 +2,7 @@
     import Loading from "./Loading.svelte";
     import UserImage from "./UserImage.svelte";
     import { onDestroy, onMount } from "svelte";
-    import { fade } from "svelte/transition";
+    import { fly } from "svelte/transition";
     import { pb } from "../scripts/pocketbase";
     import type { RecordSubscription } from "pocketbase";
     import { posts, type Post } from "../scripts/stores";
@@ -60,7 +60,7 @@
     </Loading>
     <ul>
         {#each $posts as message (message.id)}
-            <li class="message" in:fade={{ duration: 240 }}>
+            <li class="message" in:fly={{ x: 30, duration: 400 }}>
                 <div class="message-image shadow-md">
                     <UserImage seed={message.expand?.author?.name ?? ""} />
                 </div>
@@ -91,6 +91,7 @@
         border-radius: var(--border-radius-sm);
         height: var(--message-box-height);
         overflow-y: auto;
+        overflow-x: clip;
         background-color: var(--bg-glass);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
