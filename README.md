@@ -1,4 +1,4 @@
-# Endless Struggle
+# [Endless Struggle](https://fireisgood.github.io/endless-struggle/)
 
 An app to test a PocketBase backend. It is hosted on GitHub because funny free hosting.
 
