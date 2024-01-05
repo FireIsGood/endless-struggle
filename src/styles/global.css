@@ -194,7 +194,7 @@ button,
 input {
     display: block;
     padding: 8px 16px;
-    border: none;
+    border: 1px solid rgba(142, 142, 142, 0.3);
     border-radius: var(--border-radius-sm);
     box-shadow:
         var(--shadow-elevation-low),

@@ -61,12 +61,16 @@
             required
         />
     </div>
-    <input on:click={login} type="submit" value="Log in" />
-    <input on:click={signUp} type="submit" value="Sign up" />
+    <input on:click={login} type="submit" value="Log in" class="login" />
+    <input on:click={signUp} type="submit" value="Sign up" class="signup" />
 </form>
 
 <style>
     .form-item {
         line-height: 1.2;
+    }
+
+    .signup {
+        background-color: var(--secondary0);
     }
 </style>
