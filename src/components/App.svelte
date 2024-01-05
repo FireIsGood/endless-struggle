@@ -4,13 +4,15 @@
     import Logout from "./Logout.svelte";
     import Posts from "./Posts.svelte";
     import Send from "./Send.svelte";
+    import UserImage from "./UserImage.svelte";
 </script>
 
 <header>
     <h1>Endless Struggle</h1>
     {#if $currentUser}
-        <p>Hello, {$currentUser.username}</p>
         <Logout />
+        <p>Hello, <span class="username">{$currentUser.username}</span></p>
+        <UserImage seed={$currentUser.username} />
     {:else}
         <Login />
     {/if}
@@ -54,5 +56,9 @@
 
     main h1 {
         text-align: center;
+    }
+
+    .username {
+        font-weight: bold;
     }
 </style>
