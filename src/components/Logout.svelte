@@ -7,3 +7,10 @@
 </script>
 
 <button on:click={logout}>Log out</button>
+
+<style>
+    button {
+        padding: 2px 10px;
+        background-color: var(--bg1);
+    }
+</style>

@@ -23,3 +23,9 @@
     <input bind:value={post} type="text" placeholder="post..." required />
     <input type="submit" />
 </form>
+
+<style>
+    form {
+        grid-template-columns: 1fr auto;
+    }
+</style>

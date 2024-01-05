@@ -55,7 +55,7 @@
     <ul>
         {#each $posts as message (message.id)}
             <li class="message" in:fade={{ duration: 240 }}>
-                <div class="message-image">
+                <div class="message-image shadow-md">
                     <UserImage seed={message.expand?.author?.name ?? ""} />
                 </div>
                 <div class="message-body">
@@ -82,11 +82,13 @@
     .message-list {
         margin-block: 1rem;
         padding: 1rem;
-        background-color: var(--bg1);
-        border: 2px solid var(--border-color);
         border-radius: var(--border-radius-sm);
         height: var(--message-box-height);
         overflow-y: auto;
+        background-color: var(--bg-glass);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(142, 142, 142, 0.3);
     }
 
     .message {
@@ -97,8 +99,14 @@
         max-height: 120px;
     }
 
+    .author {
+        color: var(--fg1);
+    }
+
     .message-image {
         width: 72px;
         height: 72px;
+        border-radius: var(--border-radius-md);
+        overflow: clip;
     }
 </style>

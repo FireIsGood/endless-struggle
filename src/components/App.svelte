@@ -8,18 +8,23 @@
 </script>
 
 <header>
-    <h1>Endless Struggle</h1>
-    {#if $currentUser}
-        <Logout />
-        <p>Hello, <span class="username">{$currentUser.username}</span></p>
-        <UserImage seed={$currentUser.username} />
-    {:else}
-        <Login />
-    {/if}
+    <div class="header-content">
+        <h1>Endless Struggle</h1>
+        {#if $currentUser}
+            <div class="user-card">
+                <Logout />
+                <p>
+                    Hello, <span class="username">{$currentUser.username}</span>
+                </p>
+                <div class="user-image shadow-sm">
+                    <UserImage seed={$currentUser.username} />
+                </div>
+            </div>
+        {/if}
+    </div>
 </header>
 
 <main>
-    <h1>Epic app</h1>
     {#if $currentUser}
         <div class="message-container">
             <Posts />
@@ -27,24 +32,53 @@
         <p>Send a post</p>
         <Send />
     {:else}
-        <p>Sign in to continue</p>
+        <div class="sign-in-wrapper">
+            <div class="sign-in-container">
+                <h2 class="pad">Sign in to continue</h2>
+                <Login />
+            </div>
+        </div>
     {/if}
 </main>
 <footer>
-    <p>Epic footer</p>
+    <div class="footer-content">
+        <p>Created by FireIsGood</p>
+    </div>
 </footer>
 
 <style>
-    footer,
     header {
+        background-color: var(--secondary0);
+        min-height: 75px;
+    }
+    footer {
+        background-color: var(--secondary0);
+        min-height: 45px;
+    }
+
+    .footer-content,
+    .header-content {
+        max-width: 960px;
+        margin-inline: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .user-card {
         display: flex;
         align-items: center;
         gap: 10px;
-        background-color: var(--secondary0);
-        padding: 10px;
     }
-    header h1 {
-        margin-right: auto;
+
+    @media (width > 960px) {
+        .footer-content,
+        .header-content {
+            justify-content: space-between;
+        }
     }
 
     main {
@@ -54,11 +88,21 @@
         align-self: center;
     }
 
-    main h1 {
-        text-align: center;
+    .sign-in-wrapper {
+        display: grid;
+        justify-items: center;
+    }
+    .sign-in-container {
+        width: min(100%, 500px);
     }
 
     .username {
         font-weight: bold;
+    }
+    .user-image {
+        width: 54px;
+        height: 54px;
+        border-radius: var(--border-radius-sm);
+        overflow: clip;
     }
 </style>

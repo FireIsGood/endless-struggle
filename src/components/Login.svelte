@@ -43,13 +43,32 @@
 </script>
 
 <form on:submit|preventDefault>
-    <input bind:value={username} type="text" placeholder="username" required />
-    <input
-        bind:value={password}
-        type="password"
-        placeholder="password"
-        required
-    />
-    <button on:click={login}>Sign in</button>
+    <div class="form-item">
+        <label for="username">Username</label>
+        <input
+            bind:value={username}
+            id="username"
+            type="text"
+            placeholder="username"
+            required
+        />
+    </div>
+    <div class="form-item">
+        <label for="password">Password</label>
+        <input
+            bind:value={password}
+            id="password"
+            type="password"
+            placeholder="password"
+            required
+        />
+    </div>
+    <input on:click={login} type="submit" value="Log in" />
     <input on:click={signUp} type="submit" value="Sign up" />
 </form>
+
+<style>
+    .form-item {
+        line-height: 1.2;
+    }
+</style>
