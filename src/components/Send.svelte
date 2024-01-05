@@ -15,7 +15,7 @@
         };
 
         // Send it
-        const record = await pb.collection("posts").create(data);
+        await pb.collection("posts").create(data);
     }
 </script>
 

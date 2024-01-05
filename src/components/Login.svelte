@@ -8,9 +8,7 @@
         if (username === undefined || password === undefined) return;
 
         try {
-            const record = await pb
-                .collection("users")
-                .authWithPassword(username, password);
+            await pb.collection("users").authWithPassword(username, password);
             clearInputs();
         } catch (error) {
             console.log(error);
@@ -28,7 +26,7 @@
                 name: username,
                 role: "user",
             };
-            const record = await pb.collection("users").create(data);
+            await pb.collection("users").create(data);
             await login();
             clearInputs();
         } catch (error) {
