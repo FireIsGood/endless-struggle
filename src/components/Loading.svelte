@@ -8,7 +8,7 @@
 {#if loading}
     <div class="loading-screen" class:loading out:fade>
         <div class="loading-icon">
-            <slot name="spinner" />
+            <Sakura />
         </div>
         <div class="loading-bg"></div>
     </div>

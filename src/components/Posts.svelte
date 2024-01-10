@@ -54,10 +54,8 @@
     }
 </script>
 
+<Loading {loading} />
 <div class="message-list shadow-md" class:loading>
-    <Loading {loading}>
-        <slot name="spinner" slot="spinner" />
-    </Loading>
     <ul>
         {#each $posts as message (message.id)}
             <li class="message" in:fly={{ x: 30, duration: loading ? 0 : 400 }}>
