@@ -1,12 +1,12 @@
 <script lang="ts">
-    import Loading from "./Loading.svelte";
-    import UserImage from "./UserImage.svelte";
+    import Loading from "@/components/Loading.svelte";
+    import UserImage from "@/components/UserImage.svelte";
     import { onDestroy, onMount } from "svelte";
     import { fly } from "svelte/transition";
-    import { pb } from "../scripts/pocketbase";
+    import { pb } from "@scripts/pocketbase";
     import type { RecordSubscription } from "pocketbase";
-    import { posts, type Post } from "../scripts/stores";
-    import { timeout } from "../scripts/utils";
+    import { posts, type Post } from "@scripts/stores";
+    import { timeout } from "@scripts/utils";
 
     let loading = true;
     let unsubscribe: () => void = () => {};

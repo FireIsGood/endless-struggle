@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { pb } from "../scripts/pocketbase";
+    import { pb } from "@scripts/pocketbase";
 
     let username: string;
     let password: string;

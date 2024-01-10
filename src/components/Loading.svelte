@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
+    import Sakura from "@/icons/sakura.svelte";
 
     export let loading: boolean;
 </script>

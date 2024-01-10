@@ -1,13 +1,13 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
-    import { currentUser } from "../scripts/pocketbase";
-    import Login from "./Login.svelte";
-    import Logout from "./Logout.svelte";
-    import Posts from "./Posts.svelte";
-    import Send from "./Send.svelte";
-    import UserImage from "./UserImage.svelte";
-    import Loading from "./Loading.svelte";
+    import { currentUser } from "@scripts/pocketbase";
+    import Login from "@/components/Login.svelte";
+    import Logout from "@/components/Logout.svelte";
+    import Posts from "@/components/Posts.svelte";
+    import Send from "@/components/Send.svelte";
+    import UserImage from "@/components/UserImage.svelte";
+    import Loading from "@/components/Loading.svelte";
 
     let loading = true;
 
@@ -35,14 +35,10 @@
 </header>
 
 <main>
-    <Loading {loading}>
-        <slot name="spinner" slot="spinner" />
-    </Loading>
+    <Loading {loading} />
     {#if $currentUser}
         <div class="message-container">
-            <Posts>
-                <slot name="spinner" slot="spinner" />
-            </Posts>
+            <Posts />
         </div>
         <p>Send a post</p>
         <Send />
@@ -104,6 +100,10 @@
         width: min(960px, 100%);
         padding: 1rem;
         align-self: center;
+    }
+
+    .message-container {
+        position: relative;
     }
 
     .username {

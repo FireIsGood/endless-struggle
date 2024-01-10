@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { currentUser, pb } from "../scripts/pocketbase";
+    import { currentUser, pb } from "@/scripts/pocketbase";
 
     let post = "";
     async function sendMessage() {
