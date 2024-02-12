@@ -53,7 +53,7 @@ h6 {
     color: #03f;
     text-underline-offset: 0.2em;
 }
-:where(a) :visited {
+:where(a):visited {
     color: #7d013e;
 }
 
